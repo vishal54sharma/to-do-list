@@ -1,0 +1,67 @@
+<div *ngIf="isShown" class="alert alert-success alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> Updated Successfully...
+</div>
+<div *ngIf=" freshtasks !==undefined ; else elseBlock">
+<div class="accordion container mt-4" id="task-listing">
+    <div class="card" *ngFor="let freshtask of freshtasks.alltasklist">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link"  type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <label #tochecktask id="task-heading">  
+            {{freshtask.taskname}}
+          </label>
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#task-listing">
+        <div class="card-body">
+          
+          <div class="row">
+           
+              <div class="col-md-6">
+                  <div class="row mb-2">
+                      <label >Task Name:</label>
+                  </div>
+                  <div class="row mb-2">    
+                      <label >Target Date</label>
+                  </div>
+                  <div class="row mb-2">
+                      <label >Remark</label>
+                  </div>  
+              </div>
+              <div class="col-md-6">
+                <div class="row mb-2">
+                    <input type="text" #taskname placeholder="Task Name" [value]="freshtask.taskname" >
+                </div>
+                <div class="row mb-2"> 
+                    
+                    <input type="date" #tasktargetdate placeholder="Initial Target Date" [value]="freshtask.tasktargetdate" >
+                </div>
+                <div class="row mb-2">    
+                    <input type="text" #taskremark placeholder="Task Remark" [value]="freshtask.taskremark">
+                </div>
+              
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <button class="btn btn-primary " id="taskeditsave" (click)="editAndSaveTask(tochecktask.textContent, taskname.value, tasktargetdate.value, taskremark.value)">Edit & Save</button>
+                </div>
+                <div class="col-md-6">
+                  <button class="btn btn-primary " id="taskclose" (click)="closeTask(taskname.value)">Close Task</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<ng-template #elseBlock>
+
+  <div *ngIf="freshtasks.alltasklist.length==0" class="container mt-4 alert alert-danger" role="alert">
+    Sorry! but no task exist.
+  </div>
+</ng-template>

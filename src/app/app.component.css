@@ -1,0 +1,32 @@
+
+#menu-component{
+    background-color:tomato;
+}
+
+#logo{
+   
+   font-size: x-large;
+}
+
+#menu-list ul{
+    float:right;
+   margin-bottom: 0px;
+   
+}
+
+
+
+#menu-list ul li a{
+    float:right;
+   margin-bottom: 0px;
+   color:   black;
+   margin-right:30px;
+   
+}
+
+
+#menu-list ul li:hover{
+    background-color: red;
+    
+    
+}

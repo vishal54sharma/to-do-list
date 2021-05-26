@@ -1,0 +1,9 @@
+#new-task-create{
+    border: 2px solid tomato;
+    border-radius: 5px;
+    padding:30px;
+}
+
+#new-to-do-head{
+    justify-content: center;
+}

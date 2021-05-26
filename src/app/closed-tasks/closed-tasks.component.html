@@ -1,0 +1,23 @@
+<div class="container">
+<table class="table table-striped mt-5">
+    <thead>
+        <tr>
+          <th scope="col">Assign Date</th>
+          <th scope="col">Target Date</th>
+          <th scope="col">Close Date</th>
+          <th scope="col">Task Name</th>
+          <th scope="col">Task Remark</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let closedtask of closedtasks">
+          <td>{{closedtask.taskassigndate | date:"dd-MM-YYYY"}}</td>
+          <td>{{closedtask.tasktargetdate | date:"dd-MM-YYYY"}}</td>
+          <td>{{closedtask.taskcompletiondate | date:"dd-MM-YYYY"}}</td>
+          <td>{{closedtask.taskname}}</td>
+          <td>{{closedtask.taskremark}}</td>
+        </tr>
+      </tbody>
+</table>
+
+</div>
